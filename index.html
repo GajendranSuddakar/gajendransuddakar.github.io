@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gajendran Suddakar — Network Administrator Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --white: #ffffff;
+    --off-white: #f9f9f7;
+    --light-gray: #f0efeb;
+    --mid-gray: #c8c5bc;
+    --dark-gray: #4a4845;
+    --charcoal: #1e1c1a;
+    --accent: #1a4d8f;
+    --accent-light: #e8eef8;
+    --accent-mid: #4a78c0;
+    --border: #e4e2dc;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--charcoal);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2.5rem;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-brand {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    color: var(--charcoal);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--dark-gray);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 60px;
+  }
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 4rem 6rem 5rem;
+    background: var(--white);
+  }
+  .hero-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.2rem;
+  }
+  .hero-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    line-height: 1.08;
+    color: var(--charcoal);
+    margin-bottom: 1rem;
+  }
+  .hero-role {
+    font-size: 1.1rem;
+    color: var(--dark-gray);
+    font-weight: 300;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+  .hero-tagline {
+    font-size: 0.95rem;
+    color: var(--dark-gray);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 2.5rem;
+    font-style: italic;
+  }
+  .hero-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .hero-contacts a {
+    text-decoration: none;
+    color: var(--dark-gray);
+    font-size: 0.88rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s;
+  }
+  .hero-contacts a:hover { color: var(--accent); }
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1.8rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: background 0.2s, transform 0.15s;
+    align-self: flex-start;
+  }
+  .hero-cta:hover { background: #153e75; transform: translateY(-1px); }
+
+  .hero-right {
+    background: var(--off-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-right::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+  }
+  .hero-photo-wrap {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+  .hero-photo-wrap img {
+    width: 260px;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+    border: 4px solid white;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.10);
+  }
+  /* Placeholder when no real photo */
+  .photo-placeholder {
+    width: 260px;
+    height: 320px;
+    background: var(--light-gray);
+    border: 4px solid white;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.10);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--mid-gray);
+    gap: 0.75rem;
+  }
+  .photo-placeholder svg { opacity: 0.4; }
+  .photo-caption {
+    margin-top: 1rem;
+    font-size: 0.78rem;
+    color: var(--mid-gray);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* Stats strip */
+  .stats-strip {
+    background: var(--charcoal);
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 2.5rem 5rem;
+    gap: 1rem;
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.2rem;
+    color: white;
+    display: block;
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--mid-gray);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 5.5rem 5rem;
+  }
+  section:nth-of-type(even) { background: var(--off-white); }
+
+  .section-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.1rem;
+    color: var(--charcoal);
+    margin-bottom: 1rem;
+    line-height: 1.15;
+  }
+  .section-divider {
+    width: 40px;
+    height: 2px;
+    background: var(--accent);
+    margin-bottom: 2.5rem;
+  }
+
+  /* ── CAREER EXPLORATION ── */
+  .career-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  .career-image-block {
+    display: flex;
+    flex-direction: column;
+  }
+  .career-image-block img, .img-placeholder {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+  }
+  .img-placeholder {
+    background: var(--light-gray);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--mid-gray);
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: 2px dashed var(--border);
+  }
+  .img-caption {
+    font-size: 0.78rem;
+    color: var(--dark-gray);
+    padding: 0.9rem 1rem;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: none;
+    line-height: 1.5;
+  }
+  .career-text h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+    color: var(--charcoal);
+  }
+  .career-text p {
+    color: var(--dark-gray);
+    font-size: 0.93rem;
+    margin-bottom: 1rem;
+  }
+  .pill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1rem;
+  }
+  .pill {
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.3rem 0.75rem;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── SKILLS ASSESSMENT ── */
+  .skills-intro {
+    max-width: 700px;
+    margin-bottom: 2.5rem;
+    color: var(--dark-gray);
+    font-size: 0.95rem;
+  }
+  .skills-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+  .skills-col h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .skill-item {
+    margin-bottom: 1.1rem;
+  }
+  .skill-item-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 0.35rem;
+    color: var(--charcoal);
+  }
+  .skill-item-header span:last-child {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .skill-bar {
+    height: 4px;
+    background: var(--light-gray);
+    position: relative;
+    overflow: hidden;
+  }
+  .skill-fill {
+    position: absolute;
+    left: 0; top: 0; height: 100%;
+    background: var(--accent);
+  }
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    font-size: 0.85rem;
+  }
+  .comparison-table th {
+    text-align: left;
+    padding: 0.6rem 1rem;
+    background: var(--charcoal);
+    color: white;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+  }
+  .comparison-table td {
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--dark-gray);
+    vertical-align: top;
+  }
+  .comparison-table tr:nth-child(even) td { background: var(--off-white); }
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.15rem 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .badge-green { background: #e6f4ea; color: #2d7a3a; }
+  .badge-yellow { background: #fff8e1; color: #8a6500; }
+
+  /* ── CAREER DEVELOPMENT PLAN ── */
+  .timeline {
+    position: relative;
+    padding-left: 2.5rem;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent), var(--border));
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+  }
+  .timeline-dot {
+    position: absolute;
+    left: -2.9rem;
+    top: 4px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: white;
+    border: 3px solid var(--accent);
+  }
+  .timeline-period {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.3rem;
+  }
+  .timeline-item h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    color: var(--charcoal);
+    margin-bottom: 0.5rem;
+  }
+  .timeline-item p {
+    font-size: 0.88rem;
+    color: var(--dark-gray);
+    max-width: 600px;
+  }
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+  .cert-card {
+    border: 1px solid var(--border);
+    padding: 1.2rem 1.4rem;
+    background: white;
+  }
+  .cert-card-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid-gray);
+    margin-bottom: 0.4rem;
+  }
+  .cert-card h4 {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 0.25rem;
+  }
+  .cert-card p {
+    font-size: 0.8rem;
+    color: var(--dark-gray);
+  }
+
+  /* ── EVIDENCE ── */
+  .evidence-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .evidence-card {
+    display: flex;
+    flex-direction: column;
+  }
+  .evidence-card img, .evidence-img-placeholder {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+  }
+  .evidence-img-placeholder {
+    background: var(--light-gray);
+    border: 2px dashed var(--border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    color: var(--mid-gray);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .evidence-body {
+    flex: 1;
+    padding: 1.1rem;
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--accent);
+    background: white;
+  }
+  .evidence-body h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1rem;
+    color: var(--charcoal);
+    margin-bottom: 0.4rem;
+  }
+  .evidence-body p {
+    font-size: 0.82rem;
+    color: var(--dark-gray);
+    line-height: 1.55;
+  }
+
+  /* ── REFLECTION ── */
+  .reflection-company {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    padding: 1.5rem 2rem;
+    background: var(--accent-light);
+    border-left: 4px solid var(--accent);
+  }
+  .company-logo-placeholder {
+    width: 72px;
+    height: 72px;
+    background: white;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .company-logo-placeholder svg { width: 36px; height: 36px; }
+  .reflection-company h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: var(--charcoal);
+  }
+  .reflection-company p {
+    font-size: 0.85rem;
+    color: var(--dark-gray);
+    margin-top: 0.2rem;
+  }
+  .qa-list { display: flex; flex-direction: column; gap: 1.8rem; }
+  .qa-item {}
+  .qa-q {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: 0.78rem;
+  }
+  .qa-a {
+    font-size: 0.92rem;
+    color: var(--dark-gray);
+    line-height: 1.65;
+    padding-left: 1rem;
+    border-left: 2px solid var(--border);
+  }
+  .swas-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .swas-card {
+    padding: 1.2rem 1.4rem;
+    border: 1px solid var(--border);
+    background: white;
+  }
+  .swas-card h4 {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+  .swas-card p {
+    font-size: 0.86rem;
+    color: var(--dark-gray);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--charcoal);
+    color: var(--mid-gray);
+    padding: 2.5rem 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.82rem;
+  }
+  footer a {
+    color: var(--mid-gray);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  footer a:hover { color: white; }
+
+  /* ── UPLOAD NOTICE ── */
+  .upload-notice {
+    font-size: 0.72rem;
+    text-align: center;
+    color: var(--mid-gray);
+    padding: 0.4rem 0.8rem;
+    background: var(--light-gray);
+    border: 1px dashed var(--mid-gray);
+    margin-top: 0.5rem;
+    display: block;
+  }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { min-height: 340px; }
+    .career-grid, .skills-two-col, .cert-grid, .evidence-grid, .swas-grid { grid-template-columns: 1fr; }
+    .stats-strip { grid-template-columns: repeat(2,1fr); padding: 2rem; }
+    section { padding: 4rem 1.5rem; }
+    nav { padding: 0 1.2rem; }
+    .nav-links { gap: 1rem; }
+    footer { flex-direction: column; gap: 0.8rem; text-align: center; padding: 2rem 1.5rem; }
+    .hero-left { padding: 4rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#hero">Gajendran Suddakar</a>
+  <ul class="nav-links">
+    <li><a href="#career">Career</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#plan">Plan</a></li>
+    <li><a href="#evidence">Evidence</a></li>
+    <li><a href="#reflection">Reflection</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero" style="padding:0;">
+  <div class="hero">
+    <div class="hero-left">
+      <p class="hero-label">E-Portfolio · Network Administration</p>
+      <h1 class="hero-name">Gajendran<br>Suddakar</h1>
+      <p class="hero-role">Computer Science Undergraduate<br>Network Security &amp; Administration</p>
+      <p class="hero-tagline">"I genuinely enjoy the logic behind networks — every cable placed and every route configured has a visible, real result you can see and test."</p>
+      <div class="hero-contacts">
+        <a href="mailto:indhran25@gmail.com">✉ indhran25@gmail.com</a>
+        <a href="tel:+60104461235">📞 +60104461235</a>
+        <a href="https://www.linkedin.com/in/gajendran-suddakar/" target="_blank">🔗 linkedin.com/in/gajendran-suddakar</a>
+        <span>📍 Penang, Malaysia</span>
+      </div>
+      <a class="hero-cta" href="#career">View Portfolio ↓</a>
+    </div>
+    <div class="hero-right">
+      <div class="hero-photo-wrap">
+        <!--
+          ╔══════════════════════════════════════════════╗
+          ║  HOW TO ADD YOUR PHOTO:                      ║
+          ║  1. Save your photo as "photo.jpg"           ║
+          ║  2. Upload it to the same GitHub folder      ║
+          ║     as this index.html file                  ║
+          ║  3. Replace the div.photo-placeholder below  ║
+          ║     with: <img src="photo.jpg" alt="Gajendran Suddakar" /> ║
+          ╚══════════════════════════════════════════════╝
+        -->
+        <div class="photo-placeholder">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="22" r="13" stroke="#aaa" stroke-width="2"/>
+            <path d="M6 54c0-13.255 10.745-24 24-24s24 10.745 24 24" stroke="#aaa" stroke-width="2"/>
+          </svg>
+          <span style="font-size:0.72rem;color:#aaa;letter-spacing:0.07em;text-transform:uppercase;">Your Photo Here</span>
+        </div>
+        <span class="upload-notice">See instructions in code to add your photo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stat">
+    <span class="stat-num">3.81</span>
+    <span class="stat-label">Current CGPA</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">5×</span>
+    <span class="stat-label">Dean's List</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">6 mo</span>
+    <span class="stat-label">Field Experience (Maxis)</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">4.0</span>
+    <span class="stat-label">Diploma CGPA</span>
+  </div>
+</div>
+
+<!-- CAREER EXPLORATION -->
+<section id="career">
+  <p class="section-eyebrow">Section 01</p>
+  <h2 class="section-title">Career Exploration</h2>
+  <div class="section-divider"></div>
+
+  <div class="career-grid">
+    <div class="career-image-block">
+      <!--
+        HOW TO ADD AN IMAGE HERE:
+        1. Save your image (e.g., a photo of network gear, a rack, or Cisco devices)
+           as "network-admin.jpg" and upload it to your GitHub repo.
+        2. Replace the div.img-placeholder below with:
+           <img src="network-admin.jpg" alt="Network infrastructure" />
+        3. Keep the div.img-caption below it as-is.
+      -->
+      <div class="img-placeholder" style="height:260px;">
+        <svg width="40" height="40" fill="none" stroke="#bbb" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        <span>Add an image of network equipment</span>
+      </div>
+      <div class="img-caption">
+        <strong>Network Infrastructure</strong> — A Network Administrator manages, monitors, and secures the hardware and software that form an organization's data network.
+      </div>
+    </div>
+
+    <div class="career-text">
+      <h3>Network Administrator</h3>
+      <p>
+        A Network Administrator is responsible for the day-to-day operation, maintenance, and security of an organization's computer networks — including LANs, WANs, wireless systems, and VPNs. This role sits at the intersection of infrastructure management and cybersecurity.
+      </p>
+      <p><strong>Core Responsibilities:</strong></p>
+      <p>
+        Configuring and maintaining routers, switches, and firewalls; monitoring network performance and troubleshooting outages; implementing network security policies; managing VLANs and IP address spaces; documenting network topology and changes; and coordinating with vendors and stakeholders on upgrades and expansions.
+      </p>
+      <p><strong>Why this role matters in modern cybersecurity:</strong></p>
+      <p>
+        With attacks increasingly targeting network perimeters (e.g., ransomware traversing flat networks, lateral movement post-breach), Network Administrators are the first line of structural defense. Skills like VLAN segmentation, ACL policies, and intrusion detection directly reduce an organization's attack surface.
+      </p>
+      <div class="pill-list">
+        <span class="pill">Cisco IOS</span>
+        <span class="pill">VLAN / VPN</span>
+        <span class="pill">OSPF / EIGRP</span>
+        <span class="pill">Firewall Management</span>
+        <span class="pill">HSRP / EtherChannel</span>
+        <span class="pill">Network Monitoring</span>
+        <span class="pill">Wireshark</span>
+        <span class="pill">Nmap</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS ASSESSMENT -->
+<section id="skills">
+  <p class="section-eyebrow">Section 02</p>
+  <h2 class="section-title">Personal Skills Assessment</h2>
+  <div class="section-divider"></div>
+
+  <p class="skills-intro">
+    An honest comparison of where I currently stand against what the industry expects of a Network Administrator. Ratings are self-assessed based on coursework, certifications, and real-world work at Maxis.
+  </p>
+
+  <div class="skills-two-col">
+    <div class="skills-col">
+      <h3>Technical Skills</h3>
+      <div class="skill-item">
+        <div class="skill-item-header"><span>Router & Switch Configuration (Cisco)</span><span>85%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-item-header"><span>Network Simulation (Packet Tracer / GNS3)</span><span>82%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-item-header"><span>Packet Analysis (Wireshark)</span><span>75%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-item-header"><span>Network Scanning (Nmap / Zenmap)</span><span>70%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-item-header"><span>Penetration Testing (Metasploit / Burp Suite)</span><span>55%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:55%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-item-header"><span>Digital Forensics (Autopsy / FTK Imager)</span><span>60%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-item-header"><span>Linux / CLI Administration</span><span>45%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:45%"></div></div>
+      </div>
+    </div>
+    <div class="skills-col">
+      <h3>Soft Skills</h3>
+      <div class="skill-item">
+        <div class="skill-item-header"><span>Technical Troubleshooting</span><span>90%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-item-header"><span>Stakeholder Communication</span><span>80%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-item-header"><span>Adaptability</span><span>85%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-item-header"><span>Training &amp; Instruction</span><span>78%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-item-header"><span>Technical Documentation</span><span>80%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Skill Area</th>
+        <th>Industry Requirement</th>
+        <th>My Current Level</th>
+        <th>Gap</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Router/Switch Config</td>
+        <td>Cisco IOS, OSPF, BGP, VLANs</td>
+        <td>Cisco Packet Tracer, HSRP, LACP, PVST+</td>
+        <td><span class="badge badge-green">Minor</span></td>
+      </tr>
+      <tr>
+        <td>Network Monitoring</td>
+        <td>SNMP, Nagios, SolarWinds, NetFlow</td>
+        <td>Wireshark, Nmap (lab experience)</td>
+        <td><span class="badge badge-yellow">Moderate</span></td>
+      </tr>
+      <tr>
+        <td>Security Fundamentals</td>
+        <td>Firewall rules, IDS/IPS, ACLs</td>
+        <td>Cisco security labs, CCNA training</td>
+        <td><span class="badge badge-green">Minor</span></td>
+      </tr>
+      <tr>
+        <td>Cloud Networking</td>
+        <td>AWS VPC, Azure VNet basics</td>
+        <td>No current experience</td>
+        <td><span class="badge badge-yellow">Moderate</span></td>
+      </tr>
+      <tr>
+        <td>Linux Administration</td>
+        <td>CLI proficiency, shell scripting</td>
+        <td>Basic exposure in coursework</td>
+        <td><span class="badge badge-yellow">Moderate</span></td>
+      </tr>
+      <tr>
+        <td>Field Troubleshooting</td>
+        <td>On-site diagnostics, client handling</td>
+        <td>6 months at Maxis (fiber installations, SME clients)</td>
+        <td><span class="badge badge-green">Minimal</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- CAREER DEVELOPMENT PLAN -->
+<section id="plan">
+  <p class="section-eyebrow">Section 03</p>
+  <h2 class="section-title">Career Development Plan</h2>
+  <div class="section-divider"></div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <p class="timeline-period">Now — 2027 (Short-Term)</p>
+      <h3>Complete Degree &amp; Secure Internship</h3>
+      <p>
+        Complete the final year of Bachelor of Computer Science at UniSZA with a strong CGPA. Complete the 6-month internship (Nov 2026 – Mar 2027) in a network or IT infrastructure role to gain supervised production-environment experience. Earn the full CCNA certification during this period.
+      </p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <p class="timeline-period">2027 — 2028</p>
+      <h3>Junior Network Administrator</h3>
+      <p>
+        Enter the workforce as a junior network/IT administrator. Focus on mastering enterprise tools — firewalls (Palo Alto or FortiGate), network monitoring systems (Zabbix, SolarWinds), and ticketing workflows. Begin Linux CLI proficiency through daily use and personal projects.
+      </p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <p class="timeline-period">2028 — 2030</p>
+      <h3>Mid-Level Network Engineer / Security-Focused Admin</h3>
+      <p>
+        Pursue CompTIA Network+ and Security+ certifications. Develop skills in cloud networking (AWS or Azure fundamentals). Take on responsibilities such as VLAN design, VPN management, and firewall policy reviews. Begin contributing to network security audits.
+      </p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <p class="timeline-period">2030 — 2031 (5-Year Goal)</p>
+      <h3>Senior Network Administrator / Network Security Engineer</h3>
+      <p>
+        Move into a senior or specialist role with ownership over enterprise network architecture. Pursue CCNP Enterprise or CCNP Security. Lead network redesign projects, mentor junior engineers, and be a subject-matter expert on network security hardening and resilient topology design.
+      </p>
+    </div>
+  </div>
+
+  <div class="cert-grid">
+    <div class="cert-card">
+      <p class="cert-card-label">Completed</p>
+      <h4>CCNA: Switching, Routing &amp; Wireless</h4>
+      <p>Cisco — Hands-on routing protocols, VLANs, wireless networking</p>
+    </div>
+    <div class="cert-card">
+      <p class="cert-card-label">Completed</p>
+      <h4>Introduction to Cybersecurity</h4>
+      <p>Cisco — Threat detection, vulnerabilities, defense fundamentals</p>
+    </div>
+    <div class="cert-card">
+      <p class="cert-card-label">Completed</p>
+      <h4>Computer Networking Bootcamp</h4>
+      <p>Forziq — Practical networking concepts and real-world implementation</p>
+    </div>
+    <div class="cert-card">
+      <p class="cert-card-label">In Progress / Planned</p>
+      <h4>CCNA Full Certification</h4>
+      <p>Cisco — Full exam preparation alongside internship period</p>
+    </div>
+    <div class="cert-card">
+      <p class="cert-card-label">Planned (2027–28)</p>
+      <h4>CompTIA Network+</h4>
+      <p>Vendor-neutral networking fundamentals for enterprise environments</p>
+    </div>
+    <div class="cert-card">
+      <p class="cert-card-label">Planned (2028–29)</p>
+      <h4>CompTIA Security+</h4>
+      <p>Security fundamentals, threat management, and risk assessment</p>
+    </div>
+  </div>
+</section>
+
+<!-- EVIDENCE OF LEARNING -->
+<section id="evidence">
+  <p class="section-eyebrow">Section 04</p>
+  <h2 class="section-title">Evidence of Learning</h2>
+  <div class="section-divider"></div>
+
+  <div class="evidence-grid">
+
+    <div class="evidence-card">
+      <!--
+        HOW TO ADD AN IMAGE:
+        Replace the div.evidence-img-placeholder below with:
+        <img src="thesis-screenshot.jpg" alt="Thesis network diagram" />
+        Make sure you upload "thesis-screenshot.jpg" to your GitHub repo folder.
+      -->
+      <div class="evidence-img-placeholder">
+        <svg width="32" height="32" fill="none" stroke="#bbb" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        <span>Add a screenshot of your thesis diagram</span>
+      </div>
+      <div class="evidence-body">
+        <h4>Final Year Thesis Project</h4>
+        <p>"Securing Multi-Campus Networks with Network Level Security Implementations" — Designed and simulated a full multi-campus network using HSRP, LACP/EtherChannel, and Rapid PVST+ in Cisco Packet Tracer. Produced a 70+ page technical report.</p>
+      </div>
+    </div>
+
+    <div class="evidence-card">
+      <div class="evidence-img-placeholder">
+        <svg width="32" height="32" fill="none" stroke="#bbb" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg>
+        <span>Add a photo of your Maxis work / installation</span>
+      </div>
+      <div class="evidence-body">
+        <h4>Maxis Field Technician (6 months)</h4>
+        <p>Installed and configured fiber internet for residential and SME clients. Diagnosed signal, router, and connectivity issues on-site. Trained interns with no prior experience. Coordinated with TM contractors and corporate HQ.</p>
+      </div>
+    </div>
+
+    <div class="evidence-card">
+      <div class="evidence-img-placeholder">
+        <svg width="32" height="32" fill="none" stroke="#bbb" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <span>Add a screenshot of your CCNA certificate</span>
+      </div>
+      <div class="evidence-body">
+        <h4>Cisco CCNA — Switching, Routing &amp; Wireless</h4>
+        <p>Completed Cisco's CCNA: Switching, Routing, and Wireless Essentials — covering routing protocols, VLAN configuration, STP, and wireless networking setups.</p>
+      </div>
+    </div>
+
+    <div class="evidence-card">
+      <div class="evidence-img-placeholder">
+        <svg width="32" height="32" fill="none" stroke="#bbb" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+        <span>Add a screenshot from Wireshark / Nmap lab</span>
+      </div>
+      <div class="evidence-body">
+        <h4>Network Analysis Labs</h4>
+        <p>Hands-on lab work using Wireshark for packet capture and traffic analysis, and Nmap/Zenmap for network scanning and enumeration in controlled academic environments.</p>
+      </div>
+    </div>
+
+    <div class="evidence-card">
+      <div class="evidence-img-placeholder">
+        <svg width="32" height="32" fill="none" stroke="#bbb" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Add a screenshot of a Metasploit / security lab</span>
+      </div>
+      <div class="evidence-body">
+        <h4>Cybersecurity &amp; Penetration Testing Labs</h4>
+        <p>Conducted vulnerability assessments using Metasploit, Burp Suite, and WebGoat in controlled lab environments. Performed digital forensics investigations using Autopsy and FTK Imager.</p>
+      </div>
+    </div>
+
+    <div class="evidence-card">
+      <div class="evidence-img-placeholder">
+        <svg width="32" height="32" fill="none" stroke="#bbb" stroke-width="1.5" viewBox="0 0 24 24"><path d="M5 12h14M5 12l4-4M5 12l4 4"/></svg>
+        <span>Add a photo / certificate of Dean's List award</span>
+      </div>
+      <div class="evidence-body">
+        <h4>Dean's List — 5 Consecutive Semesters</h4>
+        <p>Achieved Dean's List recognition at UniSZA for Semesters 1 through 5, maintaining a CGPA of 3.81 in the Bachelor of Computer Science (Network Security) programme.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PERSONAL REFLECTION -->
+<section id="reflection">
+  <p class="section-eyebrow">Section 05</p>
+  <h2 class="section-title">Personal Reflection</h2>
+  <div class="section-divider"></div>
+
+  <div class="reflection-company">
+    <div class="company-logo-placeholder">
+      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="10" width="28" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M12 10V8a2 2 0 012-2h8a2 2 0 012 2v2" stroke="currentColor" stroke-width="1.8"/>
+        <circle cx="18" cy="18" r="3" stroke="currentColor" stroke-width="1.8"/>
+      </svg>
+    </div>
+    <div>
+      <h3>Dream Company: Telekom Malaysia (TM)</h3>
+      <p>Malaysia's leading integrated telecommunications company — operating the national fiber broadband backbone and enterprise network infrastructure across the country.</p>
+    </div>
+  </div>
+
+  <div class="qa-list">
+    <div class="qa-item">
+      <p class="qa-q">Why do you want to work for TM?</p>
+      <p class="qa-a">
+        Telekom Malaysia operates the largest network infrastructure in the country — and that scale is exactly what excites me. I have already seen what TM's backbone looks like from the contractor side during my Maxis installer role, where I coordinated with TM technicians for fiber provisioning. I want to be on the other side of that: building, maintaining, and securing the infrastructure that millions of Malaysians rely on. TM is also deeply invested in enterprise cloud and cybersecurity services, which aligns perfectly with the direction I want to grow in.
+      </p>
+    </div>
+    <div class="qa-item">
+      <p class="qa-q">What value can you bring to TM?</p>
+      <p class="qa-a">
+        I bring a rare combination of hands-on field experience and academic depth. Most fresh graduates have theoretical knowledge — I have actually installed and troubleshot fiber connections for SME clients, configured third-party hardware under time pressure, and trained others to do the same. On the academic side, my thesis tackled real enterprise problems: hierarchical network design, HSRP gateway redundancy, and LACP link aggregation. I can apply knowledge in the real world, not just reproduce it in a lab.
+      </p>
+    </div>
+    <div class="qa-item">
+      <p class="qa-q">Why should TM hire me?</p>
+      <p class="qa-a">
+        I have a consistent track record: 5 consecutive semesters on the Dean's List, a 4.0 CGPA in my diploma, and CCNA training completed alongside real field work. I am the kind of person who doesn't just learn the theory — I need to see things work, which is why I chose network administration in the first place. Every routing table entry or VLAN that's configured has a visible, testable outcome. That mindset translates directly into someone who builds reliable, well-documented networks rather than just functional ones.
+      </p>
+    </div>
+    <div class="qa-item">
+      <p class="qa-q">What skills make me suitable for a Network Administrator role?</p>
+      <p class="qa-a">
+        My Cisco Packet Tracer proficiency covers the same concepts used in production environments: OSPF, EtherChannel, STP variants, and VLAN segmentation. My experience diagnosing real connectivity issues under pressure at Maxis means I don't panic when something goes down — I methodically isolate the fault. My security coursework (Wireshark, Nmap, penetration testing basics) means I think about network design from a security perspective, not just an uptime perspective.
+      </p>
+    </div>
+  </div>
+
+  <div class="swas-grid" style="margin-top:2.5rem;">
+    <div class="swas-card">
+      <h4>Strengths</h4>
+      <p>Practical field experience from Maxis; strong academic performance; genuine passion for network infrastructure; ability to explain and train; CCNA-level configuration skills; calm and methodical troubleshooter.</p>
+    </div>
+    <div class="swas-card">
+      <h4>Areas to Improve</h4>
+      <p>Limited Linux CLI experience; no hands-on exposure to enterprise monitoring platforms (Zabbix, SolarWinds); no cloud networking experience yet; will actively address these during internship and in early career roles.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Gajendran Suddakar · E-Portfolio</span>
+  <span>CSA30203 · Special Topics in Computer Network Security</span>
+  <a href="https://www.linkedin.com/in/gajendran-suddakar/" target="_blank">LinkedIn ↗</a>
+</footer>
+
+</body>
+</html>
